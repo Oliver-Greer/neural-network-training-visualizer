@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.SceneAntialiasing?>
+<?import javafx.scene.SubScene?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseDragged="#rotate_Camera" onScroll="#scroll_Camera" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.srjc.a14.greer.oliver.final_greer_oliver.A14_Greer_Oliver_Controller">
+    <SubScene fx:id="subScene3D" depthBuffer="true" fill="BLACK" height="775.0" layoutY="27.0" width="1200.0">
+        <antiAliasing>
+            <SceneAntialiasing fx:constant="BALANCED" />
+        </antiAliasing>
+      <root>
+          <Group />
+      </root>
+    </SubScene>
+   <MenuBar layoutY="2.0">
+     <menus>
+       <Menu mnemonicParsing="false" text="File">
+         <items>
+           <MenuItem mnemonicParsing="false" onAction="#close_Application" text="Close" />
+         </items>
+       </Menu>
+     </menus>
+   </MenuBar>
+   <Button layoutX="1009.0" layoutY="50.0" mnemonicParsing="false" onAction="#generate_Data" prefHeight="25.0" prefWidth="150.0" text="Regenerate Data" />
+   <Button layoutX="1009.0" layoutY="87.0" mnemonicParsing="false" onAction="#make_Network_Learn" prefHeight="25.0" prefWidth="150.0" text="Start Learning" />
+   <Button layoutX="1009.0" layoutY="123.0" mnemonicParsing="false" onAction="#stop_Learning" prefHeight="25.0" prefWidth="150.0" text="Stop Learning" />
+   <Accordion layoutX="25.0" layoutY="50.0" prefHeight="458.0" prefWidth="370.0">
+     <panes>
+       <TitledPane animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="445.0" text="Settings">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="368.0">
+                  <children>
+                     <Slider fx:id="sliDataPerCategory" blockIncrement="2000.0" layoutX="145.0" layoutY="55.0" majorTickUnit="2200.0" max="14000.0" min="1000.0" minorTickCount="1000" prefHeight="33.0" prefWidth="290.0" showTickLabels="true" value="7500.0" />
+                     <Label layoutX="14.0" layoutY="55.0" text="Data Points / Category" />
+                     <Slider fx:id="sliNumberOfCategories" blockIncrement="1.0" layoutX="145.0" layoutY="15.0" majorTickUnit="1.0" max="12.0" min="1.0" minorTickCount="1" prefHeight="33.0" prefWidth="290.0" showTickLabels="true" snapToTicks="true" value="4.0" />
+                     <Label layoutX="14.0" layoutY="15.0" text="Categories" />
+                     <Slider fx:id="sliTrainingSplit" layoutX="145.0" layoutY="90.0" majorTickUnit="10.0" min="10.0" minorTickCount="10" prefHeight="33.0" prefWidth="290.0" showTickLabels="true" value="90.0" />
+                     <Label layoutX="14.0" layoutY="90.0" text="Training % Split" />
+                     <Slider fx:id="sliBatchSize" layoutX="145.0" layoutY="130.0" majorTickUnit="100.0" max="1000.0" min="100.0" minorTickCount="100" prefHeight="33.0" prefWidth="289.0" showTickLabels="true" value="100.0" />
+                     <Label layoutX="14.0" layoutY="130.0" text="Batch Size" />
+                     <Label layoutX="13.0" layoutY="193.0" text="Hidden Layer Node Counts" />
+                     <Label layoutX="13.0" layoutY="163.0" prefHeight="17.0" prefWidth="414.0" text="Format:  &quot;# Nodes Layer 1,  # Nodes Layer 2, ..., # Nodes Layer n&quot;" />
+                     <TextField fx:id="txtNodeCounts" layoutX="163.0" layoutY="189.0" prefHeight="25.0" prefWidth="260.0" promptText="12, 15" text="12, 15, 12" />
+                     <Label layoutX="13.0" layoutY="231.0" text="Hidden Layer Activation Function" />
+                     <Label layoutX="14.0" layoutY="266.0" text="Output Layer Activation Function" />
+                     <Label layoutX="13.0" layoutY="301.0" text="Cost Function" />
+                     <ChoiceBox fx:id="chBoxHiddenActivationFunctions" layoutX="215.0" layoutY="227.0" prefHeight="25.0" prefWidth="208.0" />
+                     <ChoiceBox fx:id="chBoxOutputActivationFunctions" layoutX="215.0" layoutY="262.0" prefHeight="25.0" prefWidth="208.0" />
+                     <ChoiceBox fx:id="chBoxCostFunctions" layoutX="215.0" layoutY="297.0" prefHeight="25.0" prefWidth="208.0" />
+                     <Label layoutX="163.0" layoutY="331.0" text="Network Learn Rate" />
+                     <Slider fx:id="sliLearnRate" layoutX="6.0" layoutY="356.0" majorTickUnit="0.01" max="0.6" min="0.001" minorTickCount="4" prefHeight="33.0" prefWidth="431.0" showTickLabels="true" value="0.01" />
+                     <Button layoutX="140.0" layoutY="399.0" mnemonicParsing="false" onAction="#update_Changes" prefHeight="25.0" prefWidth="150.0" text="Apply Changes" />
+                  </children>
+               </AnchorPane>
+         </content>
+       </TitledPane>
+         <TitledPane animated="false" text="Help">
+           <content>
+             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <Text layoutX="7.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="This program was designed to give a visual representation of what is happening inside a neural network. The neural network itself is quite primative and the performance is not great. However, there are certain settings that will help." wrappingWidth="445.0" />
+                     <Text layoutX="25.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1. For a classification program like this one, the cross entropy cost function will usually result in faster convergence." wrappingWidth="392.0234375" />
+                     <Text layoutX="25.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2. When using unbounded activation functions like LReLU and ReLU, gradients can explode, resulting in NaN outputs. If this occurs the simulation will stop learning. To avoid this use a very low learning rate." wrappingWidth="392.0234375" />
+                     <Text layoutX="25.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="392.0234375" />
+                     <Text layoutX="25.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3. If the visual boxes appear to be jumping back and forth and the accuracy isn't increasing, this is an indication that the learning rate is too high. The network is jumping back and forth over a minima in the cost landscape without reaching it." wrappingWidth="392.0234375" />
+                     <Text layoutX="25.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4. Having more layers allows the network to learn more complex functions, but may result in overfitting. This means it is learning to predict noise in the data instead of the function we are trying to approximate. Play around with the size and number of layers to see what works best." wrappingWidth="392.0234375" />
+                     <Text layoutX="25.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5. If the network isn't learning, it either means the learning rate is too low or the outputs have collapsed to NaN. In the later case, change the node counts to reinitialize all the weights." wrappingWidth="392.0234375" />
+                     <Text layoutX="25.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6. Small batch sizes may result in faster convergence, but will also produce less accurate gradients. The optimal batch size will depend on the network settings. Play around with this setting to see what works best." wrappingWidth="392.0234375" />
+                  </children>
+               </AnchorPane>
+           </content>
+         </TitledPane>
+     </panes>
+   </Accordion>
+   <Text fx:id="txtClassificationAccuracy" fill="WHITE" layoutX="764.0" layoutY="773.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accuracy: 0%" textAlignment="RIGHT" wrappingWidth="421.13671875">
+      <font>
+         <Font size="48.0" />
+      </font>
+   </Text>
+</AnchorPane>
