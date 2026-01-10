@@ -13,4 +13,4 @@ Future improvements could include adding different types of layer options (this 
 like dropout or normalization, and adding different optimizers as a modifiable UI field 
 (this only includes loss and activation functions).
 
-To download the Jar execuatable, visit [olivergreer.com](https://olivergreer.com/).
+To download the Jar executable, visit [olivergreer.com](https://olivergreer.com/).
