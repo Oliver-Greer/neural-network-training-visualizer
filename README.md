@@ -7,9 +7,9 @@ and be able to visualize the learning process easily.
 To this end, I programmed a basic feed-forward style network, without any fancy optimizers like ADAM.
 I used JavaFX to create a simple 3D UI where one can view the training process and modify the network parameters.
 My hope is that this helps other people better intuitively understand how different parameters 
-affect the efficacy of network training.
+effect the efficacy of network training.
 
-Future improvements could include adding different types of layer options (this only includes dense layers),
+Future improvements could include adding different types of layer options (this only includes dense layers)
 like dropout or normalization, and adding different optimizers as a modifiable UI field 
 (this only includes loss and activation functions).
 
