@@ -12,5 +12,3 @@ effect the efficacy of network training.
 Future improvements could include adding different types of layer options (this only includes dense layers)
 like dropout or normalization, and adding different optimizers as a modifiable UI field 
 (this only includes loss and activation functions).
-
-To download the Jar executable, visit [olivergreer.com](https://olivergreer.com/).
